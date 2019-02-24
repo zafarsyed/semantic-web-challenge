@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FAQ</title>
+    <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16" />
+
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/prettify.css" rel="stylesheet" />
+
+    <style>
+
+        html, body{
+      height: 100%;
+    }
+        html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
+        .nav>li>a {
+            color: #fff;
+            /* IE8 proofing */
+            color: rgba(255, 255, 255, .95);
+        }
+
+        .questions>li {
+            margin-bottom: 5px;
+        }
+        .page-footer{
+            color: #fff;
+            margin-top: 2em;
+        }
+        .page-footer a,
+        .page-footer a:focus,
+        .page-footer a:hover{
+            color: #fff;
+        }
+.wrapper{
+    height: 100vh;
+    margin-bottom: 4em;
+}
+
+    </style>
+
+
+
+</head>
+
+<body>
+    <nav class="navbar bg-dark" style="margin-bottom:3em">
+        <a class="navbar-brand" href="../../index.html">
+            <img src="../img/tldr-white-logo.png" class="img-responsive" style="max-height:60px;" alt="Logo">
+        </a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item"><a class="nav-link" href="tldr-task.html">Task</a></li>
+            <li class="nav-item"><a class="nav-link" href="soa.html">Related Work</a></li>
+        </ul>
+    </nav>
+<div class="wrapper">
+    <div class="container col-md-8">
+        <div class="row" style="padding:0.3em">
+            <ul class="questions">
+                <li> <span class="lead font-weight-bold">Registration</span>
+                    <p>
+                        Please sign up using the form <a href="https://goo.gl/forms/mrvXdRLiHmxgG5k73" target="new">here</a>
+                    </p>
+                </li>
+                <li>
+                    <span class="lead font-weight-bold">Competition guidelines</span>
+                    <p>
+                        1. Each team must have at least 2 and maximum of 4 participants <br>
+                        2. A participant can register only in one team <br>
+                        3. Participants are free to perform any preprocessing of the data provided as they see fit <br>
+                        4. Only the training data provided by the organizers must be used for training the models <br>
+                        5. Participants are strongly encouraged to use publicly available tools which can be shared
+                        with the community
+                    </p>
+                </li>
+                <li>
+                    <span class="lead font-weight-bold">Submission</span>
+                    <p>
+                        When you registered, you will get remote access to a virtual machine (Windows or Linux) to deploy the task software in. Your software must be executable from the command line and not require Internet access during the evaluation period. 
+                        <p>
+                            <strong>Note that all models must be capable of CPU inference only as we do not support GPU based models. </strong> 
+                        </p>
+                    </p>
+                </li>
+                <li>
+                    <span class="lead font-weight-bold">Evaluation using TIRA</span>
+                    <p>
+                    You will be able to self-evaluate your software using the <a href="http://tira.io/" target="new">TIRA</a> service. You can find the user guide <a href="https://www.tira.io/static/tira-vm-user-guide.pdf" target="new">here</a>. The automatic evaluation will use ROUGE measure and a script will be provided shortly after the start of the competition. Participants will be able to perform self evaluation using this script and report the F-1 scores accordingly for ROUGE-1, ROUGE-2 and ROUGE-LCS.
+                    </p>
+                </li>
+                <li>
+                    <span class="lead font-weight-bold">Competition timeline</span>
+                    <p>
+                        <strong>November 5th, 2018 :</strong> Training data available, competition begins <br>
+                        <strong>January 15th, 2019 :</strong> Submission system and public leaderboard open <br>
+                        <strong>April 1st, 2019 :</strong> Submission system closed (23:59 PM UTC), manual evaluation
+                        begins <br>
+
+                    </p>
+                </li>
+                <li>
+                    <span class="lead font-weight-bold">Organizers</span>
+                    <p>
+                        <strong>Shahbaz Syed :</strong> Research assitant, <a href="https://www.uni-weimar.de/en/media/chairs/computer-science-department/webis/people/syed/">Webis
+                            Group</a> Bauhaus Universit&auml;t Weimar, Germany <br>
+                        <strong>Michael V&ouml;lske :</strong> Research assistant, <a href="http://www.uni-weimar.de/en/media/chairs/computer-science-department/webis/people/voelske">Webis
+                            Group</a> Bauhaus Universit&auml;t Weimar, Germany <br>
+                        <strong>Jun.-Prof. Dr. Martin Potthast :</strong> <a href="https://www.informatik.uni-leipzig.de/ifi/professuren/angewandteinf/temir/home/">Head
+                            of TEMIR Group</a>, Leipzig University, Germany <br>
+                        <strong>Dr. Nedim Lipka :</strong> Research Scientist at <a href="https://research.adobe.com/person/nedim-lipka/">BigData
+                            Experience Lab</a>, Adobe Research, San Jose <br>
+                        <strong>Prof. Dr. Benno Stein :</strong> <a href="https://www.uni-weimar.de/en/media/chairs/computer-science-department/webis/people/stein/">Chair
+                            of Webis Group</a>, Bauhaus Universit&auml;t Weimar, Germany <br>
+                        <strong>Prof. Dr. Hinrich Sch&uuml;tze :</strong> <a href="http://www.cis.uni-muenchen.de/personen/professoren/schuetze/">Chair
+                            of Computational Linguistics</a>, LMU, Germany
+                    </p>
+                </li>
+                <li>
+                    <span class="lead font-weight-bold">Contact</span>
+                    <p>
+                        Send an email to : <a href="mailto:shahbaz.syed@uni-weimar.de" target="_blank">Shahbaz
+                            Syed</a>
+                    </p>
+
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+    <footer class="footer fixed-bottom bg-dark navbar navbar-expand-sm navbar-expand-md navbar-expand-lg navbar-expand-xl justify-content-center page-footer" >
+      &COPY;
+      <a href="https://webis.de/" target="_blank" class="small" >Webis Group</a>
+      &nbsp; & &nbsp;
+      <a href="https://research.adobe.com/" target="_blank" class="small" >Adobe Research</a>
+    </footer>
+
+  <!-- <div class="navbar navbar-fixed-bottom navbar-expand-sm bg-dark justify-content-center " >
+    <div>
+      &COPY;
+      <a href="https://webis.de/" target="_blank" style="font-size:18px;">Webis Group, Germany</a>
+      &
+      <a href="https://research.adobe.com/" target="_blank" style="font-size:18px;">Adobe Research, San Jose</a>
+    </div>
+  </div> -->  
+
+</body>
+
+</html>

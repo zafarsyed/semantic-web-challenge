@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Related work</title>
+    <link rel="icon" type="image/png" target="new" href="../img/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" target="new" href="../img/favicon-16x16.png" sizes="16x16" />
+    <link target="new" href="../../css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+        .nav>li>a {
+            color: #fff;
+            /* IE8 proofing */
+            color: rgba(255, 255, 255, .95);
+        }
+    
+    .page-footer{
+            color: #fff;
+            margin-top: 4em;
+        }
+        .page-footer a,
+        .page-footer a:focus,
+        .page-footer a:hover{
+            color: #fff;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <nav class="navbar bg-dark" style="margin-bottom:5em">
+        <a class="navbar-brand" href="../../index.html">
+            <img src="../img/tldr-logo.png" class="img-responsive" style="max-height:60px;" alt="Logo">
+        </a>
+        <!-- <ul class="nav justify-content-end">
+            <li class="nav-item"><a class="nav-link" href="tldr-task.html">Task</a></li>
+            <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        </ul> -->
+    </nav>
+    <div class="container" style="margin-bottom:6em;">
+        <div class="container-fluid col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+            <h3 class="lead">State of the Art in Neural Summarization</h3>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Filter Publications</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search here" id="filter">
+            </div>
+            <div class=" table-responsive-xs table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+                <table class="table table-xs table-sm table-md table-hover">
+                    <caption style="caption-side:top; white-space:normal;">
+                        Italics denote F1 scores reported by authors <br>
+                        H-attn = Hierarchical attention ;
+                        HSS-attn = Hierarchical self structured attention ;
+                        Pos-emb = Position embedding ; <br>
+                        RL = Reinforcement learning ;
+                        MTL = Multi-task learning ;
+                        RAML = Reward Augmented Maximum Likelihood Training ;
+                    </caption>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="col-sm-4 col-md-2" style="width:20%">Authors</th>
+                            <th class="col-sm-4 col-md-4" style="width:20%">Title</th>
+                            <th class="col-sm-3 col-md-3" style="width:20%">Model</th>
+                            <th style="white-space:nowrap" style="width:20%">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-4">Corpora</div>
+                                        <div class="col-sm-2">R-1</div>
+                                        <div class="col-sm-2">R-2</div>
+                                        <div class="col-sm-2">R-LCS</div>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="searchable">
+                        <tr data-toggle="collapse" data-target="#rush_abs">
+                            <th scope="row"><a href="http://aclweb.org/anthology/D/D15/D15-1044.pdf" target="_blank">Rush
+                                    et.al 2015</a></th>
+                            <td>A Neural Attention Model for Sentence Summarization</td>
+                            <td>Conv-Seq2Seq + attn
+                                <br> LM <br>
+                                <a href="https://github.com/facebookarchive/NAMAS" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">31</div>
+                                        <div class="col-sm-2">12.65</div>
+                                        <div class="col-sm-2">28.34</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="rush_abs" colspan="100%">
+                                Summarization based on text extraction is inherently limited, but generation-style
+                                abstractive methods have proven challenging to build. In this work, we propose a fully
+                                data-driven approach to abstractive sentence summarization. Our method utilizes a local
+                                attention-based model that generates each word of the summary conditioned on the input
+                                sentence. While the model is structurally simple, it can easily be trained end-to-end
+                                and
+                                scales to a large amount of training data. The model shows significant performance
+                                gains on
+                                the DUC-2004 shared task compared with several strong baselines.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#nal_abs">
+                            <th scope="row"><a href="http://aclweb.org/anthology/K/K16/K16-1028.pdf" target="_blank">Nallapati
+                                    et.al 2016</a></th>
+                            <td>Abstractive Text Summarization using Sequence-to-sequence RNNs and Beyond</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Large vocabulary trick <br>
+                                H-attn <br>
+                                Pointer-attn <br>
+                                <a href="https://github.com/alesee/abstractive-text-summarization" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">32.49</div>
+                                        <div class="col-sm-2">11.84</div>
+                                        <div class="col-sm-2">29.47</div>
+                                    </div>
+                                </div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">34.19</div>
+                                        <div class="col-sm-2">16.29</div>
+                                        <div class="col-sm-2">32.13</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="nal_abs" colspan="100%" style="text-align:justify">
+                                In this work, we model abstractive text summarization using Attentional Encoder-Decoder
+                                Recurrent Neural Networks, and show that they achieve state-of-the-art performance on
+                                two
+                                different corpora. We propose several novel models that address critical problems in
+                                summarization that are not adequately modeled by the basic architecture, such as
+                                modeling
+                                key-words, capturing the hierarchy of sentence-to-word structure, and emitting words
+                                that
+                                are rare or unseen at training time. Our work shows that many of our proposed models
+                                contribute to further improvement in performance. We also propose a new dataset
+                                consisting
+                                of multi-sentence summaries, and establish performance benchmarks for further research.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#chop_abs">
+                            <th scope="row"><a href="http://aclweb.org/anthology/N/N16/N16-1012.pdf" target="_blank">Chopra
+                                    et.al 2016</a></th>
+                            <td>Abstractive Sentence Summarization with Attentive Recurrent Neural Networks</td>
+                            <td>Conv-enc <br>
+                                RNN-dec <br>
+                                attn <br>
+                                Pos-emb</td>
+                            <td style="white-space:nowrap; font-style:italic;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">33.78</div>
+                                        <div class="col-sm-2">15.97</div>
+                                        <div class="col-sm-2">31.15</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="chop_abs" colspan="100%" style="text-align:justify">
+                                Abstractive Sentence Summarization generates a shorter version of a given sentence
+                                while
+                                attempting to preserve its meaning. We introduce a conditional recurrent neural network
+                                (RNN) which generates a summary of an input sentence. The conditioning is provided by
+                                a novel convolutional attention-based encoder which ensures that the decoder focuses on
+                                the
+                                appropriate input words at each step of generation. Our model relies only on learned
+                                features
+                                and is easy to train in an end-to-end fashion on large data sets. Our experiments show
+                                that
+                                the
+                                model significantly outperforms the recently proposed state-of-the-art method on the
+                                Giga-
+                                word corpus while performing competitively on the DUC-2004 shared task
+
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#nallapati_summarunner_abs">
+                            <th scope="row"><a target="new" href="https://arxiv.org/abs/1611.04230">Nallapati
+                                    et.al 2017</a></th>
+                            <td>SummaRuNNer: A Recurrent Neural Network based Sequence Model for Extractive
+                                Summarization of Documents</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">39.6</div>
+                                        <div class="col-sm-2">16.2</div>
+                                        <div class="col-sm-2">35.3</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="nallapati_summarunner_abs" style="text-align:justify" colspan="100%">
+                                We present SummaRuNNer, a Recurrent Neural Network (RNN) based sequence model for
+                                extractive summarization of documents and show that it achieves performance better than
+                                or comparable to state-of-the-art. Our model has the additional advantage of being very
+                                interpretable, since it allows visualization of its predictions broken up by abstract
+                                features such as information content, salience and novelty. Another novel contribution
+                                of our work is abstractive training of our extractive model that can train on human
+                                generated reference summaries alone, eliminating the need for sentence-level extractive
+                                labels.
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#xu_abs">
+                            <th scope="row"><a href="http://aclweb.org/anthology/W17-1002" target="_blank">Xu et.al
+                                    2017</a></th>
+                            <td>Decoupling Encoder and Decoder Networks for
+                                Abstractive Document Summarization</td>
+                            <td>doc2vec-enc <br>
+                                RNN-dec</td>
+                            <td style="white-space:nowrap; font-style:italic;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">30.7</div>
+                                        <div class="col-sm-2">11.3</div>
+                                        <div class="col-sm-2">27.6</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="xu_abs" colspan="100%" style="text-align:justify">
+                                Abstractive
+                                document
+                                summarization
+                                seeks to automatically generate a sum-
+                                mary for a document, based on some
+                                abstract understanding of the original
+                                document. State-of-the-art techniques traditionally use attentive encoder?decoder
+                                architectures. However, due to the large
+                                number of parameters in these models,
+                                they require large training datasets and
+                                long training times.
+                                In this paper, we
+                                propose decoupling the encoder and
+                                decoder networks, and training them
+                                separately. We encode documents using
+                                an
+                                unsupervised
+                                document
+                                encoder,
+                                and then feed the document vector to
+                                a recurrent neural network decoder.
+                                With this decoupled architecture, we
+                                decrease the number of parameters in
+                                the decoder substantially, and shorten its
+                                training time. Experiments show that the
+                                decoupled model achieves comparable
+                                performance with state-of-the-art models
+                                for in-domain documents, but less well for
+                                out-of-domain documents
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#suzuki_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/E17-2047">Suzuki
+                                    et.al 2017</a></th>
+                            <td>Cutting-off Redundant Repeating Generations for Neural Abstractive Summarization</td>
+                            <td>RNN-Seq2Seq + attn
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">36.30</div>
+                                        <div class="col-sm-2">17.31</div>
+                                        <div class="col-sm-2">33.88</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="suzuki_abs" style="text-align:justify" colspan="100%">
+                                This paper tackles the reduction of redundant repeating generation that is often
+                                observed in RNN-based encoder-decoder models. Our basic idea is to jointly estimate the
+                                upper-bound frequency of each target vocabulary in the encoder and control the output
+                                words based on the estimation in the decoder. Our method shows significant improvement
+                                over a strong RNN-based encoder-decoder baseline and achieved its best results on an
+                                abstractive summarization benchmark.
+
+                            </td>
+                        </tr>
+
+
+                        <tr data-toggle="collapse" data-target="#tan_abs">
+                            <th scope="row"><a href="http://aclweb.org/anthology/P17-1108" target="_blank">Tan et.al
+                                    2017</a></th>
+                            <td>Abstractive Document Summarization with a Graph-Based
+                                Attentional Neural Model</td>
+                            <td>RNN-Seq2Seq <br> H-attn <br> <a href="https://github.com/tanjiwei/summ" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap; font-style:italic;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">38.1</div>
+                                        <div class="col-sm-2">13.9</div>
+                                        <div class="col-sm-2">34</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="tan_abs" colspan="100%" style="text-align:justify">
+                                Abstractive summarization is the ultimate goal of document summarization research,
+                                but previously it is less investigated due to the immaturity of text generation
+                                techniques.
+                                Recently impressive progress has been made to abstractive sentence summarization using
+                                neural models. Unfortunately, attempts on abstractive document summarization are still
+                                in a
+                                primitive stage, and the evaluation results are worse than extractive methods on
+                                benchmark
+                                datasets. In this paper, we review the difficulties of neural abstractive document
+                                summarization, and propose a novel
+                                graph-based attention mechanism in the sequence-to-sequence framework. The intuition is
+                                to
+                                address the saliency factor of summarization, which has been overlooked by prior works.
+                                Experimental results demonstrate our model is able to achieve considerable improvement
+                                over
+                                previous neural abstractive models. The data-driven neural abstractive method is also
+                                competitive with state-of-the-art extractive methods
+
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#cheng_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/P/P16/P16-1046.pdf">Cheng
+                                    et.al 2016</a></th>
+                            <td>Neural Summarization by Extracting Sentences and Words</td>
+                            <td>Conv-enc + RNN-enc <br>
+                                H-attn <br>
+                                RNN-dec <br> <a href="https://github.com/cheng6076/NeuralSum" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">DailyMail</div>
+                                        <div class="col-sm-2">21.2</div>
+                                        <div class="col-sm-2">8.3</div>
+                                        <div class="col-sm-2">12</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="cheng_abs" style="text-align:justify" colspan="100%">
+                                Traditional approaches to extractive summarization rely heavily on human-engineered
+                                features. In this work we propose a data-driven approach based on neural networks and
+                                continuous sentence features. We develop a general framework for single-document
+                                summarization composed of a hierarchical document encoder and an attention-based
+                                extractor.
+                                This architecture allows us to develop different classes of summarization models which
+                                can
+                                extract sentences or words. We train our models on large scale corpora containing
+                                hundreds
+                                of thousands of document-summary pairs. Experimental results on two summarization
+                                datasets
+                                demonstrate that our models obtain results comparable to the state of the art without
+                                any
+                                access to linguistic annotation.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#zhou_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/P17-1101">Zhou et.al 2017</a></th>
+                            <td>Selective Encoding for Abstractive Sentence Summarization</td>
+                            <td>RNN-Seq2Seq <br>
+                                GRU-selection-gate <br> <a href="https://github.com/toru34/zhou_acl_2017" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap; font-style: italic" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">36.15</div>
+                                        <div class="col-sm-2">17.54</div>
+                                        <div class="col-sm-2">33.63</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="zhou_abs" style="text-align:justify" colspan="100%">
+                                We propose a selective encoding model to extend the sequence-to-sequence framework for
+                                abstractive sentence summarization. It consists of a sentence encoder, a selective gate
+                                network, and an attention equipped decoder. The sentence encoder and decoder are built
+                                with
+                                recurrent neural networks. The selective gate network constructs a second level
+                                sentence
+                                representation by controlling the information flow from encoder to decoder. The second
+                                level representation is tailored for sentence summarization task, which leads to better
+                                performance. We evaluate our model on the English Gigaword, DUC 2004 and MSR
+                                abstractive
+                                sentence summarization datasets. The experimental results show that the proposed
+                                selective
+                                encoding model outperforms the state-of-the-art baseline models.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#tan_abs2">
+                            <th scope="row"><a target="new" href="https://www.ijcai.org/proceedings/2017/0574.pdf">Tan
+                                    et.al 2017</a></th>
+                            <td>From Neural Sentence Summarization to Headline Generation:
+                                A Coarse-to-Fine Approach</td>
+                            <td>RNN-Seq2Seq + attn <br> <a href="https://github.com/sythello/HeadlineGeneration-CHN"
+                                    target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">NYT</div>
+                                        <div class="col-sm-2">29.6</div>
+                                        <div class="col-sm-2">8.17</div>
+                                        <div class="col-sm-2">26.05</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="tan_abs2" style="text-align:justify" colspan="100%">
+                                Headline generation is a task of abstractive text summarization, and previously suffers
+                                from the immaturity of natural language generation techniques. Recent success of neural
+                                sentence summarization models shows the capacity of generating informative, fluent
+                                headlines conditioned on selected recapitulative sentences. In this paper, we
+                                investigate
+                                the extension of sentence summarization models to the document headline generation
+                                task.
+                                The challenge is that extending the sentencesummarization model to consider more
+                                document
+                                information will mostly confuse the model and hurt the performance. In this paper, we
+                                propose a coarse-to-fine approach, which first identifies the important sentences of a
+                                document using document summarization techniques, and then exploits a multi-sentence
+                                summarization model with hierarchical attention to leverage the important sentences for
+                                headline generation. Experimental results on a large real dataset demonstrate the
+                                proposed
+                                approach significantly improves the performance of neural sentence summarization models
+                                on
+                                the headline generation task
+
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#li_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/D17-1222">Li et.al 2017</a></th>
+                            <td>Deep Recurrent Generative Decoder for Abstractive Text Summarization</td>
+                            <td>RNN-Seq2Seq + attn <br> <a href="https://github.com/toru34/li_emnlp_2017" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap;font-style: italic" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">36.27</div>
+                                        <div class="col-sm-2">17.57</div>
+                                        <div class="col-sm-2">33.62</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="li_abs" style="text-align:justify" colspan="100%">
+                                We propose a new framework for abstractive text summarization based on a
+                                sequence-to-sequence oriented encoder-decoder model equipped with a deep recurrent
+                                generative decoder (DRGN). Latent structure information implied in the target summaries
+                                is
+                                learned based on a recurrent latent random model for improving the summarization
+                                quality.
+                                Neural variational inference is employed to address the intractable posterior inference
+                                for
+                                the recurrent latent variables. Abstractive summaries are generated based on both the
+                                generative latent variables and the discriminative deterministic states. Extensive
+                                experiments on some benchmark datasets in different languages show that DRGN achieves
+                                improvements over the state-of-the-art methods.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#pasunuru_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/W17-4504">Pasunuru et.al
+                                    2017</a></th>
+                            <td>Towards Improving Abstractive Summarization via Entailment Generation</td>
+                            <td>RNN-Seq2Seq + attn <br> <a href="https://github.com/yottabytt/pytorch_mtl" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">32.75</div>
+                                        <div class="col-sm-2">15.35</div>
+                                        <div class="col-sm-2">30.82</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="pasunuru_abs" style="text-align:justify" colspan="100%">
+                                Abstractive summarization, the task of rewriting and compressing a document
+                                into a short summary, has achieved considerable success with neural
+                                sequence-to-sequence
+                                models. However, these models can still benefit from stronger natural language
+                                inference
+                                skills, since a correct summary is logically entailed by the input document, i.e., it
+                                should not contain any contradictory or unrelated information. We incorporate such
+                                knowledge into an abstractive summarization model via multi-task learning, where we
+                                share
+                                its decoder parameters with those of an entailment generation model. We achieve
+                                promising
+                                initial improvements based on multiple metrics and datasets (including a test-only
+                                setting). The domain mismatch between the entailment (captions) and summarization
+                                (news)
+                                datasets suggests that the model is learning some domain-agnostic inference skills
+                            </td>
+
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#paulus_abs">
+                            <th scope="row"><a target="new" href="https://arxiv.org/pdf/1705.04304.pdf">Paulus et.al
+                                    2017</a></th>
+                            <td>A Deep Reinforced Model for Abstractive Summarization</td>
+                            <td>RNN-Seq2Seq + Intra-attn <br> <a href="https://github.com/HydraRobot/attention_RNN_for_textsum"
+                                    target="_blank">Code</a> </td>
+                            <td style="white-space:nowrap" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">39.87</div>
+                                        <div class="col-sm-2">15.82</div>
+                                        <div class="col-sm-2">36.90</div>
+                                    </div>
+                                </div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">NYT</div>
+                                        <div class="col-sm-2">47.03</div>
+                                        <div class="col-sm-2">30.72</div>
+                                        <div class="col-sm-2">43.10</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="paulus_abs" style="text-align:justify" colspan="100%">
+                                Attentional, RNN-based encoder-decoder models for abstractive summarization
+                                have achieved good performance on short input and output sequences. For longer
+                                documents and summaries however these models often include repetitive and
+                                incoherent phrases. We introduce a neural network model with a novel intra-attention
+                                that
+                                attends over the input and continuously generated output separately,
+                                and a new training method that combines standard supervised word prediction and
+                                reinforcement learning (RL). Models trained only with supervised learning often
+                                exhibit exposure bias ; they assume ground truth is provided at each step during
+                                training. However, when standard word prediction is combined with the global sequence
+                                prediction training of RL the resulting summaries become more readable.
+                                We evaluate this model on the CNN/Daily Mail and New York Times datasets.
+                                Our model obtains a 41.16 ROUGE-1 score on the CNN/Daily Mail dataset, an
+                                improvement over previous state-of-the-art models. Human evaluation also shows
+                                that our model produces higher quality summaries.
+                            </td>
+
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#see_abs">
+                            <th scope="row"><a target="new" href="https://www.aclweb.org/anthology/P/P17/P17-1099.pdf">See
+                                    et.al 2017</a></th>
+                            <td>Get To The Point: Summarization with Pointer-Generator Networks</td>
+                            <td>RNN-Seq2Seq <br>
+                                Pointer-attn <br>
+                                Coverage-attn <br> <a href="https://github.com/abisee/pointer-generator" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap; font-style: italic" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">39.53</div>
+                                        <div class="col-sm-2">17.28</div>
+                                        <div class="col-sm-2">36.38</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="see_abs" style="text-align:justify" colspan="100%">
+                                Neural sequence-to-sequence models have provided a viable new approach for abstractive
+                                text
+                                summarization (meaning they are not restricted to simply selecting and rearranging
+                                passages
+                                from the original text). However, these models have two shortcomings: they are liable
+                                to
+                                reproduce factual details inaccurately, and they tend to repeat themselves. In this
+                                work we
+                                propose a novel architecture that augments the standard sequence-to-sequence
+                                attentional
+                                model in two orthogonal ways. First, we use a hybrid pointer-generator network that can
+                                copy words from the source text via pointing, which aids accurate reproduction of
+                                information, while retaining the ability to produce novel words through the generator.
+                                Second, we use coverage to keep track of what has been summarized, which discourages
+                                repetition. We apply our model to the CNN / Daily Mail summarization task,
+                                outperforming
+                                the current abstractive state-of-the-art by at least 2 ROUGE points.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#chen_abs2">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/P18-1063">Chen et.al 2018</a></th>
+                            <td>Fast Abstractive Summarization with Reinforce-Selected Sentence Rewriting</td>
+                            <td><b>Extractor :</b> <br>
+                                Conv-enc <br>
+                                RNN-Pointer <br>
+                                RNN-dec <br>
+                                <b>Abstractor :</b> <br>
+                                RNN-Seq2Seq + attn <br>
+                                Copy-attn <br> <a href="https://github.com/ChenRocks/fast_abs_rl" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">40.88</div>
+                                        <div class="col-sm-2">17.8</div>
+                                        <div class="col-sm-2">38.54</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="chen_abs2" style="text-align:justify" colspan="100%">
+                                Inspired by how humans summarize long documents, we propose an accurate and fast
+                                summarization model that first selects salient sentences and then rewrites them
+                                abstractively (i.e., compresses and paraphrases) to generate a concise overall summary.
+                                We
+                                use a novel sentence-level policy gradient method to bridge the non-differentiable
+                                computation between these two neural networks in a hierarchical way, while maintaining
+                                language fluency. Empirically, we achieve the new state-of-the-art on all metrics
+                                (including human evaluation) on the CNN/Daily Mail dataset, as well as significantly
+                                higher
+                                abstractiveness scores. Moreover, by first operating at the sentence-level and then the
+                                word-level, we enable parallel decoding of our neural generative model that results in
+                                substantially faster (10-20x) inference speed as well as 4x faster training convergence
+                                than previous long-paragraph encoder-decoder models. We also demonstrate the
+                                generalization
+                                of our model on the test-only DUC-2002 dataset, where we achieve higher scores than a
+                                state-of-the-art model
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#cao_abs">
+                            <th scope="row"><a target="new" href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16121/16007">Cao
+                                    et.al 2018</a></th>
+
+                            <td>Faithful to the Original: Fact-Aware
+                                Neural Abstractive Summarization</td>
+                            <td>RNN-Seq2Seq + attn</td>
+                            <td style="white-space:nowrap; font-style: italic" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">37.27</div>
+                                        <div class="col-sm-2">17.65</div>
+                                        <div class="col-sm-2">34.24</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="cao_abs" style="text-align:justify" colspan="100%">
+                                Unlike extractive summarization, abstractive summarization has to fuse different parts
+                                of
+                                the source text, which inclines to create fake facts. Our preliminary study reveals
+                                nearly
+                                30% of the outputs from a state-of-the-art neural summarization system suffer from this
+                                problem. While previous abstractive summarization approaches usually focus on the
+                                improvement of informativeness, we argue that faithfulness is also a vital prerequisite
+                                for
+                                a practical abstractive summarization system. To avoid generating fake facts in a
+                                summary,
+                                we leverage open information extraction and dependency parse technologies to extract
+                                actual
+                                fact descriptions from the source text. The dual-attention sequence-to-sequence
+                                framework
+                                is then proposed to force the generation conditioned on both the source text and the
+                                extracted fact descriptions. Experiments on the Gigaword benchmark dataset demonstrate
+                                that
+                                our model can greatly reduce fake summaries by 80%. Notably, the fact descriptions also
+                                bring significant improvement on informativeness since they often condense the meaning
+                                of
+                                the source text.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#cao_abs2">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/P18-1015">Cao et.al 2018</a></th>
+                            <td>Retrieve, Rerank and Rewrite: Soft Template Based Neural
+                                Summarization</td>
+                            <td>RNN-Seq2Seq + attn <br> <a href="http://www4.comp.polyu.edu.hk/%7Ecszqcao/data/IRSum_Resource.zip"
+                                    target="_blank">Code</a> </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">37.04</div>
+                                        <div class="col-sm-2">19.03</div>
+                                        <div class="col-sm-2">34.46</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="cao_abs2" style="text-align:justify" colspan="100%">
+                                Most previous seq2seq summarization systems purely depend on the source text to
+                                generate
+                                summaries, which tends to work unstably. Inspired by the traditional template-based
+                                summarization approaches, this paper proposes to use existing summaries as soft
+                                templates
+                                to guide the seq2seq model. To this end, we use a popular IR platform to Retrieve
+                                proper
+                                summaries as candidate templates. Then, we extend the seq2seq framework to jointly
+                                conduct
+                                template Reranking and templateaware summary generation (Rewriting). Experiments show
+                                that,
+                                in terms of informativeness, our model significantly outperforms the state-of-the-art
+                                methods, and even soft templates themselves demonstrate high competitiveness. In
+                                addition,
+                                the import of high-quality external summaries improves the stability and readability of
+                                generated summaries.
+                            </td>
+
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#zhou_abs2">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/P18-1061">Zhou et.al.2018</a></th>
+                            <td>Neural Document Summarization by Jointly
+                                Learning to Score and Select Sentences [extractive]</td>
+                            <td>RNN-Seq2Seq + attn <br> <a href="https://github.com/magic282/NeuSum" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap; font-style: italic" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">41.59</div>
+                                        <div class="col-sm-2">19.01</div>
+                                        <div class="col-sm-2">37.98</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="zhou_abs2" style="text-align:justify" colspan="100%">
+                                Sentence scoring and sentence selection are two main steps in extractive document
+                                summarization systems. However, previous works treat them as two separated subtasks. In
+                                this paper, we present a novel end-to-end neural network framework for extractive
+                                document
+                                summarization by jointly learning to score and select sentences. It first reads the
+                                document sentences with a hierarchical encoder to obtain the representation of
+                                sentences.
+                                Then it builds the output summary by extracting sentences one by one. Different from
+                                previous methods, our approach integrates the selection strategy into the scoring
+                                model,
+                                which directly predicts the relative importance given previously selected sentences.
+                                Experiments on the CNN/Daily Mail dataset show that the proposed framework
+                                significantly
+                                outperforms the state-of-the-art extractive summarization models.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#amplayo_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/N18-1064">Amplayo et.al
+                                    2018</a></th>
+                            <td>Entity Commonsense Representation
+                                for Neural Abstractive Summarization</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Conv-enc <br> <a href="https://github.com/rktamplayo/Entity2Topic" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">31.9</div>
+                                        <div class="col-sm-2">10.1</div>
+                                        <div class="col-sm-2">23.9</div>
+                                    </div>
+                                </div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">37.04</div>
+                                        <div class="col-sm-2">16.66</div>
+                                        <div class="col-sm-2">34.93</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="amplayo_abs" style="text-align:justify" colspan="100%">
+                                A major proportion of a text summary includes important entities found in the original
+                                text. These entities build up the topic of the summary. Moreover, they hold commonsense
+                                information once they are linked to a knowledge base. Based on these observations, this
+                                paper investigates the usage of linked entities to guide the decoder of a neural text
+                                summarizer to generate concise and better summaries. To this end, we leverage on an
+                                off-the-shelf entity linking system (ELS) to extract linked entities and propose
+                                Entity2Topic (E2T), a module easily attachable to a sequence-to-sequence model that
+                                transforms a list of entities into a vector representation of the topic of the summary.
+                                Current available ELS's are still not sufficiently effective, possibly introducing
+                                unresolved ambiguities and irrelevant entities. We resolve the imperfections of the ELS
+                                by
+                                (a) encoding entities with selective disambiguation, and (b) pooling entity vectors
+                                using
+                                firm attention. By applying E2T to a simple sequence-to-sequence model with attention
+                                mechanism as base model, we see significant improvements of the performance in the
+                                Gigaword
+                                (sentence to title) and CNN (long document to multi-sentence highlights) summarization
+                                datasets by at least 2 ROUGE points.
+                            </td>
+
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#liu_abs2">
+                            <th scope="row"><a target="new" href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16238/16492">Liu
+                                    et.al 2018</a></th>
+                            <td>Generative Adversarial Network for Abstractive Text Summarization</td>
+                            <td><b>Generator :</b> <br>
+                                RNN-Seq2Seq + attn <br>
+                                <b>Discriminator :</b> <br>
+                                Conv-classifier</td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">39.92</div>
+                                        <div class="col-sm-2">17.65</div>
+                                        <div class="col-sm-2">36.71</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="liu_abs2" style="text-align:justify" colspan="100%">
+                                In this paper, we propose an adversarial process for abstractive text summarization, in
+                                which we simultaneously train a generative model G and a discriminative model D. In
+                                particular, we build the generator G as an agent of reinforcement learning, which takes
+                                the
+                                raw text as input and predicts the abstractive summarization. We also build a
+                                discriminator
+                                which attempts to distinguish the generated summary from the ground truth summary.
+                                Extensive experiments demonstrate that our model achieves competitive ROUGE scores with
+                                the
+                                state-of-the-art methods on CNN/Daily Mail dataset. Qualitatively, we show that our
+                                model
+                                is able to generate more abstractive, readable and diverse summaries.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#lin_abs3">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/P18-2027">Lin et.al 2018</a></th>
+                            <td>Global Encoding for Abstractive Summarization</td>
+                            <td>RNN-Seq2Seq <br>
+                                Conv-gate + Self-attn <br> <a href="https://github.com/lancopku/Global-Encoding" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap; font-style: italic" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">36.3</div>
+                                        <div class="col-sm-2">18</div>
+                                        <div class="col-sm-2">33.8</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="lin_abs3" style="text-align:justify" colspan="100%">
+                                In neural abstractive summarization, the conventional sequence-to-sequence (seq2seq)
+                                model
+                                often suffers from repetition and semantic irrelevance. To tackle the problem, we
+                                propose a
+                                global encoding framework, which controls the information flow from the encoder to the
+                                decoder based on the global information of the source context. It consists of a
+                                convolutional gated unit to perform global encoding to improve the representations of
+                                the
+                                source-side information. Evaluations on the LCSTS and the English Gigaword both
+                                demonstrate
+                                that our model outperforms the baseline models, and the analysis shows that our model
+                                is
+                                capable of reducing repetition.
+                            </td>
+
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#hsu_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/P18-1013">Hsu et.al 2018</a></th>
+                            <td>A Unified Model for Extractive and Abstractive Summarization
+                                using Inconsistency Loss</td>
+                            <td><b>Extractor :</b>
+                                RNN <br>
+                                <b>Abstractor :</b> <br>
+                                RNN-Seq2Seq + attn <br>
+                                Coverage-attn <br>
+                                Copy-attn <br> <a href="https://github.com/HsuWanTing/unified-summarization" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">40.68</div>
+                                        <div class="col-sm-2">17.97</div>
+                                        <div class="col-sm-2">37.13</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="hsu_abs" style="text-align:justify" colspan="100%">
+                                We propose a unified model combining the strength of extractive and abstractive
+                                summarization. On the one hand, a simple extractive model can obtain sentence-level
+                                attention with high ROUGE scores but less readable. On the other hand, a more
+                                complicated
+                                abstractive model can obtain word-level dynamic attention to generate a more readable
+                                paragraph. In our model, sentence-level attention is used to modulate the word-level
+                                attention such that words in less attended sentences are less likely to be generated.
+                                Moreover, a novel inconsistency loss function is introduced to penalize the
+                                inconsistency
+                                between two levels of attentions. By end-to-end training our model with the
+                                inconsistency
+                                loss and original losses of extractive and abstractive models, we achieve
+                                state-of-the-art
+                                ROUGE scores while being the most informative and readable summarization on the
+                                CNN/Daily
+                                Mail dataset in a solid human evaluation.
+                            </td>
+
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#fan_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/W18-2706">Fan et.al 2018</a></th>
+                            <td>Controllable Abstractive Summarization</td>
+                            <td>Conv-Seq2Seq <br>
+                                Multi-hop-attn <br>
+                                Intra-attn</td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">40.38</div>
+                                        <div class="col-sm-2">17.44</div>
+                                        <div class="col-sm-2">37.15</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="fan_abs" style="text-align:justify" colspan="100%">
+                                Current models for document summarization disregard user preferences such as the
+                                desired
+                                length, style, the entities that the user might be interested in, or how much of the
+                                document the user has already read. We present a neural summarization model with a
+                                simple
+                                but effective mechanism to enable users to specify these high level attributes in order
+                                to
+                                control the shape of the final summaries to better suit their needs. With user input,
+                                our
+                                system can produce high quality summaries that follow user preferences. Without user
+                                input,
+                                we set the control variables automatically. On the full text CNN-Dailymail dataset, we
+                                outperform state of the art abstractive systems (both in terms of F1-ROUGE1 40.38 vs.
+                                39.53
+                                and human evaluation).
+                            </td>
+
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#song_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/C18-1146">Song et.al 2018</a></th>
+                            <td>Structure-Infused Copy Mechanisms for Abstractive Summarization</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Copy-attn <br> <a href="https://github.com/KaiQiangSong/struct_infused_summ" target="_blank">Code</a>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">35.47</div>
+                                        <div class="col-sm-2">17.66</div>
+                                        <div class="col-sm-2">33.52</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="song_abs" style="text-align:justify" colspan="100%">
+                                Seq2seq learning has produced promising results on summarization. However, in many
+                                cases,
+                                system summaries still struggle to keep the meaning of the original intact. They may
+                                miss
+                                out important words or relations that play critical roles in the syntactic structure of
+                                source sentences. In this paper, we present structure-infused copy mechanisms to
+                                facilitate
+                                copying important words and relations from the source sentence to summary sentence. The
+                                approach naturally combines source dependency structure with the copy mechanism of an
+                                abstractive sentence summarizer. Experimental results demonstrate the effectiveness of
+                                incorporating source-side syntactic information in the system, and our proposed
+                                approach
+                                compares favorably to state-of-the-art methods.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#wang_abs">
+                            <th scope="row"><a target="new" href="https://www.ijcai.org/proceedings/2018/0619.pdf">Wang
+                                    et.al 2018</a></th>
+                            <td>A Reinforced Topic-Aware Convolutional Sequence-to-Sequence
+                                Model for Abstractive Text Summarization</td>
+                            <td>Conv-Seq2Seq <br>
+                                Pos-emb <br>
+                                Topic-emb <br>
+                                Multi-hop-attn <br>
+                                Joint-attn</td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">36.92</div>
+                                        <div class="col-sm-2">18.29</div>
+                                        <div class="col-sm-2">34.58</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="wang_abs" style="text-align:justify" colspan="100%">
+                                In this paper, we propose a deep learning approach to tackle the automatic
+                                summarization
+                                tasks by incorporating topic information into the convolutional sequence-to-sequence
+                                (ConvS2S) model and using self-critical sequence training (SCST) for optimization.
+                                Through
+                                jointly attending to topics and word-level alignment, our approach can improve
+                                coherence,
+                                diversity, and informativeness of generated summaries via a biased probability
+                                generation
+                                mechanism. On the other hand, reinforcement training, like SCST, directly optimizes the
+                                proposed model with respect to the non-differentiable metric ROUGE, which also avoids
+                                the
+                                exposure bias during inference. We carry out the experimental evaluation with
+                                state-of-the-art methods over the Gigaword, DUC-2004, and LCSTS datasets. The empirical
+                                results demonstrate the superiority of our proposed method in the abstractive
+                                summarization.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#celki_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/N18-1150">Celikyilmaz
+                                    et.al.2018</a></th>
+                            <td>Deep Communicating Agents for Abstractive Summarization</td>
+                            <td>RNN-Seq2Seq + H-attn <br>
+                                Word-attn <br>
+                                Agent-attn <br>
+                                Copy-attn</td>
+                            <td style="white-space:nowrap" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">41.69</div>
+                                        <div class="col-sm-2">19.47</div>
+                                        <div class="col-sm-2">37.92</div>
+                                    </div>
+                                </div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">NYT</div>
+                                        <div class="col-sm-2">48.08</div>
+                                        <div class="col-sm-2">31.19</div>
+                                        <div class="col-sm-2">42.33</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="celki_abs" style="text-align:justify" colspan="100%">
+                                We present deep communicating agents in an encoder-decoder architecture to address the
+                                challenges of representing a long document for abstractive summarization. With deep
+                                communicating agents, the task of encoding a long text is divided across multiple
+                                collaborating agents, each in charge of a subsection of the input text. These encoders
+                                are
+                                connected to a single decoder, trained end-to-end using reinforcement learning to
+                                generate
+                                a focused and coherent summary. Empirical results demonstrate that multiple
+                                communicating
+                                encoders lead to a higher quality summary compared to several strong baselines,
+                                including
+                                those based on a single encoder or multiple non-communicating encoders.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#cohan_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/N18-2097">Cohan et.al
+                                    2018</a></th>
+                            <td>A Discourse-Aware Attention Model for Abstractive Summarization of Long Documents</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Copy-attn <br>
+                                Coverage-attn</td>
+                            <td style="white-space:nowrap" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">arXiv</div>
+                                        <div class="col-sm-2">35.80</div>
+                                        <div class="col-sm-2">11.05</div>
+                                        <div class="col-sm-2">31.80</div>
+                                    </div>
+                                </div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">PubMed</div>
+                                        <div class="col-sm-2">38.93</div>
+                                        <div class="col-sm-2">15.37</div>
+                                        <div class="col-sm-2">35.21</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="cohan_abs" style="text-align:justify" colspan="100%">
+                                Neural abstractive summarization models have led to promising results in summarizing
+                                relatively short documents. We propose the first model for abstractive summarization of
+                                single, longer-form documents (e.g., research papers). Our approach consists of a new
+                                hierarchical encoder that models the discourse structure of a document, and an
+                                attentive
+                                discourse-aware decoder to generate the summary. Empirical results on two large-scale
+                                datasets of scientific papers show that our model significantly outperforms
+                                state-of-the-art models.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#li_abs4">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/N18-2009">Li et.al 2018</a></th>
+                            <td>Guiding Generation for Abstractive Text Summarization
+                                based on Key Information Guide Network</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Copy-attn <br>
+                                Prediction-attn</td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">38.95</div>
+                                        <div class="col-sm-2">17.12</div>
+                                        <div class="col-sm-2">35.68</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="li_abs4" style="text-align:justify" colspan="100%">
+                                Neural network models, based on the attentional encoder-decoder model, have good
+                                capability
+                                in abstractive text summarization. However, these models are hard to be controlled in
+                                the
+                                process of generation, which leads to a lack of key information. We propose a guiding
+                                generation model that combines the extractive method and the abstractive method.
+                                Firstly,
+                                we obtain keywords from the text by a extractive model. Then, we introduce a Key
+                                Information Guide Network (KIGN), which encodes the keywords to the key information
+                                representation, to guide the process of generation. In addition, we use a
+                                prediction-guide
+                                mechanism, which can obtain the long-term value for future decoding, to further guide
+                                the
+                                summary generation. We evaluate our model on the CNN/Daily Mail dataset. The
+                                experimental
+                                results show that our model leads to significant improvements.
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#xie_abs">
+                            <th scope="row"><a target="new" href="http://tcci.ccf.org.cn/conference/2018/papers/90.pdf">Xie
+                                    et.al 2018</a></th>
+                            <td>Abstractive Summarization Improved
+                                by WordNet-Based Extractive Sentences</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Pointer-attn <br>
+                                Coverage-attn</td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">39.32</div>
+                                        <div class="col-sm-2">17.15</div>
+                                        <div class="col-sm-2">36.02</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="xie_abs" style="text-align:justify" colspan="100%">
+                                Recently, the seq2seq abstractive summarization models have achieved good results on
+                                the
+                                CNN/Daily Mail dataset. Still, how to improve abstractive methods with extractive
+                                methods
+                                is a good research direction, since extractive methods have their potentials of
+                                exploiting
+                                various efficient features for extracting important sentences in one text. In this
+                                paper,
+                                in order to improve the semantic relevance of abstractive summaries, we adopt the
+                                WordNet
+                                based sentence ranking algorithm to extract the sentences which are most semantically
+                                to
+                                one text. Then, we design a dual attentional seq2seq framework to generate summaries
+                                with
+                                consideration of the extracted information. At the same time, we combine
+                                pointer-generator
+                                and coverage mechanisms to solve the problems of out-of-vocabulary (OOV) words and
+                                duplicate words which exist in the abstractive models. Experiments on the CNN/Daily
+                                Mail
+                                dataset show that our models achieve competitive performance with the state-of-the-art
+                                ROUGE scores. Human evaluations also show that the summaries generated by our models
+                                have
+                                high semantic relevance to the original text.
+                            </td>
+                        </tr>
+                        <!-- More papers-->
+                        <tr data-toggle="collapse" data-target="#wu_abs">
+                            <th scope="row"><a target="new" href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16838/16118">Wu
+                                    et.al 2018</a></th>
+                            <td>Learning to Extract Coherent Summary via Deep Reinforcement Learning</td>
+                            <td>Conv-Seq2Seq + attn <br>
+                                Neural coherence <br>
+                                RL <br>    
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">41.25</div>
+                                        <div class="col-sm-2">18.87</div>
+                                        <div class="col-sm-2">37.75</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="wu_abs" style="text-align:justify" colspan="100%">
+                                Coherence plays a critical role in producing a high-quality summary from a document. In
+                                recent years, neural extractive
+                                summarization is becoming increasingly attractive. However, most of them ignore the
+                                coherence of summaries when extracting sentences. As an effort towards extracting
+                                coherent summaries, we propose a neural coherence model to capture
+                                the cross-sentence semantic and syntactic coherence patterns. The proposed neural
+                                coherence model obviates the need for
+                                feature engineering and can be trained in an end-to-end fashion using unlabeled data.
+                                Empirical results show that the
+                                proposed neural coherence model can efficiently capture the cross-sentence coherence
+                                patterns. Using the combined output of the neural coherence model and ROUGE package as
+                                the reward, we design a reinforcement learning method to train a proposed neural
+                                extractive summarizer which is named
+                                Reinforced Neural Extractive Summarization (RNES) model. The RNES model learns to
+                                optimize coherence and informative importance of the summary simultaneously. The
+                                experimental results show that the proposed RNES outperforms ex-
+                                isting baselines and achieves state-of-the-art performance in term of ROUGE on
+                                CNN/Daily Mail dataset. The qualitative evaluation indicates that summaries produced by
+                                RNES are
+                                more coherent and readable.
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#jadhav_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/P18-1014">Jadhav
+                                    et.al 2018</a></th>
+                            <td>Extractive Summarization with SWAP-NET: Sentences and Words from Alternating Pointer
+                                Networks</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Dual-pointer-attn <br>
+                                </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">41.6</div>
+                                        <div class="col-sm-2">18.3</div>
+                                        <div class="col-sm-2">37.7</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="jadhav_abs" style="text-align:justify" colspan="100%">
+                                We present a new neural sequence-to-
+                                sequence model for extractive summa-
+                                rization called SWAP-NET (Sentences
+                                and Words from Alternating Pointer Net-
+                                works). Extractive summaries comprising
+                                a salient subset of input sentences, often
+                                also contain important key words. Guided
+                                by this principle, we design SWAP-NET
+                                that models the interaction of key words
+                                and salient sentences using a new two-
+                                level pointer network based architecture.
+                                SWAP-NET identifies both salient sen-
+                                tences and key words in an input docu-
+                                ment, and then combines them to form the
+                                extractive summary. Experiments on large
+                                scale benchmark corpora demonstrate the
+                                efficacy of SWAP-NET that outperforms
+                                state-of-the-art extractive summarizers.
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#al-sabahl_abs">
+                            <th scope="row"><a target="new" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8344797">Al-Sabahl
+                                    et.al 2018</a></th>
+                            <td>A Hierarchical Structured Self-Attentive Model for Extractive Document Summarization
+                                (HSSAS)</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                HSS-attn 
+                                </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">42.3</div>
+                                        <div class="col-sm-2">17.8</div>
+                                        <div class="col-sm-2">37.6</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="al-sabahl_abs" style="text-align:justify" colspan="100%">
+                                The recent advance in neural network architecture and training algorithms has shown the
+                                effectiveness of representation learning. The neural-network-based models generate
+                                better representation
+                                than the traditional ones. They have the ability to automatically learn the distributed
+                                representation for
+                                sentences and documents. To this end, we proposed a novel model that addresses several
+                                issues that are
+                                not adequately modeled by the previously proposed models, such as the memory problem
+                                and incorporating
+                                the knowledge of document structure. Our model uses a hierarchical structured
+                                self-attention mechanism
+                                to create the sentence and document embeddings. This architecture mirrors the
+                                hierarchical structure of the
+                                document and in turn enables us to obtain better feature representation. The attention
+                                mechanism provides
+                                extra source of information to guide the summary extraction. The new model treated the
+                                summarization task
+                                as a classification problem in which the model computes the respective probabilities of
+                                sentence?summary
+                                membership. The model predictions are broken up by several features such as information
+                                content, salience,
+                                novelty, and positional representation. The proposed model was evaluated on two
+                                well-known datasets,
+                                the CNN/Daily Mail and DUC 2002. The experimental results show that our model
+                                outperforms the current
+                                extractive state of the art by a considerable margin.
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#gehrmann_abs">
+                            <th scope="row"><a target="new" href="https://arxiv.org/pdf/1808.10792.pdf">Gehrmann
+                                    et.al 2018</a></th>
+                            <td>Bottom-Up Abstractive Summarization</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Pointer-attn <br>
+                                Coverage-attn <br>
+                                Bottom-up copy attn <br>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">41.22</div>
+                                        <div class="col-sm-2">18.68</div>
+                                        <div class="col-sm-2">38.34</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="gehrmann_abs" style="text-align:justify" colspan="100%">
+                                Neural network-based methods for abstractive summarization produce outputs that are
+                                more fluent than other techniques, but which can be poor at content selection. This
+                                work proposes a simple technique for addressing this issue: use a data-efficient
+                                content selector to over-determine phrases in a source document that should be part of
+                                the summary. We use this selector as a bottom-up attention step to constrain the model
+                                to likely phrases. We show that this approach improves the ability to compress text,
+                                while still generating fluent summaries. This two-step process is both simpler and
+                                higher performing than other end-to-end content selection models, leading to
+                                significant improvements on ROUGE for both the CNN-DM and NYT corpus. Furthermore, the
+                                content selector can be trained with as little as 1,000 sentences, making it easy to
+                                transfer a trained summarizer to a new domain.
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#narayan_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/N18-1158">Narayan
+                                    et.al 2018</a></th>
+                            <td>Ranking Sentences for Extractive Summarization with Reinforcement Learning</td>
+                            <td>Conv-sent-enc <br>
+                                RNN-doc-enc <br>
+                                RNN-sent-extractor <br>
+                                RL <br>
+                                <a href="https://github.com/EdinburghNLP/Refresh" target="_blank">Code</a> </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">40</div>
+                                        <div class="col-sm-2">18.2</div>
+                                        <div class="col-sm-2">36.6</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="narayan_abs" style="text-align:justify" colspan="100%">
+                                Single document summarization is the task
+                                of producing a shorter version of a document while preserving its principal informa-
+                                tion content. In this paper we conceptualize
+                                extractive summarization as a sentence ranking task and propose a novel training
+                                algorithm
+                                which globally optimizes the ROUGE evaluation metric through a reinforcement learning
+                                objective. We use our algorithm to train a neural summarization model on the CNN and
+                                DailyMail datasets and demonstrate experimentally that it outperforms state-of-the-art
+                                extractive and abstractive systems when evaluated automatically and by humans.
+
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#pasunuru2_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/N18-2102">Pasunuru
+                                    et.al 2018</a></th>
+                            <td>Multi-Reward Reinforced Summarization with Saliency and Entailment</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Pointer-attn <br>
+                                Coverage-attn <br>
+                                RL <br>
+                                ROUGE reward <br>
+                                Entailment reward <br>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">40.43</div>
+                                        <div class="col-sm-2">18</div>
+                                        <div class="col-sm-2">37.10</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="pasunuru2_abs" style="text-align:justify" colspan="100%">
+                                Abstractive text summarization is the task
+                                of compressing and rewriting a long document into a short summary while maintain-
+                                ing saliency, directed logical entailment, and
+                                non-redundancy.
+                                In this work, we address
+                                these three important aspects of a good summary via a reinforcement learning approach
+                                with two novel reward functions: ROUGE- Sal and Entail, on top of a coverage-based
+                                baseline. The ROUGESal reward modifies the
+                                ROUGE metric by up-weighting the salient
+                                phrases/words detected via a keyphrase classifier. The Entail reward gives high
+                                (length-
+                                normalized) scores to logically-entailed summaries using an entailment classifier.
+                                Further,
+                                we show superior performance improvement when these rewards are combined with
+                                traditional metric (ROUGE) based rewards, via our novel and effective multi-reward
+                                approach of
+                                optimizing multiple rewards simultaneously in alternate mini-batches. Our method
+                                achieves
+                                the new state-of-the-art results on CNN/Daily Mail dataset as well as strong
+                                improvements in
+                                a test-only transfer setup on DUC-2002.
+
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#guo_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/P18-1064">Guo
+                                    et.al 2018</a></th>
+                            <td>Soft Layer-Specific Multi-Task Summarization with Entailment and Question Generation</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Pointer-attn <br>
+                                Coverage-attn <br>
+                                Question generation <br>
+                                Entailment generation <br>
+                                MTL <br>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">CNN-DM</div>
+                                        <div class="col-sm-2">39.81</div>
+                                        <div class="col-sm-2">17.64</div>
+                                        <div class="col-sm-2">36.54</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="guo_abs" style="text-align:justify" colspan="100%">
+                                An accurate abstractive summary of a document should contain all its salient
+                                information and should be logically entailed by the input document. We improve these
+                                important aspects of abstractive summarization via multi-task learning with the
+                                auxiliary tasks of question generation and entailment generation, where the former
+                                teaches the summarization model how to look for salient questioning-worthy details, and
+                                the latter teaches the model how to rewrite a summary which is a directed-logical
+                                subset of the input document. We also propose novel multi-task architectures with
+                                high-level (semantic) layer-specific sharing across multiple encoder and decoder layers
+                                of the three tasks, as well as soft-sharing mechanisms (and show performance ablations
+                                and analysis examples of each contribution). Overall, we achieve statistically
+                                significant improvements over the state-of-the-art on both the CNN/DailyMail and
+                                Gigaword datasets, as well as on the DUC-2002 transfer setup. We also present several
+                                quantitative and qualitative analysis studies of our model's learned saliency and
+                                entailment skills.
+
+                            </td>
+                        </tr>
+
+                        <tr data-toggle="collapse" data-target="#li_3_abs">
+                            <th scope="row"><a target="new" href="http://aclweb.org/anthology/C18-1121">Li
+                                    et.al 2018</a></th>
+                            <td>Ensure the Correctness of the Summary: Incorporate Entailment Knowledge into
+                                Abstractive Sentence Summarization</td>
+                            <td>RNN-Seq2Seq + attn <br>
+                                Entailment classifier <br>
+                                MTL, RAML <br>
+                            </td>
+                            <td style="white-space:nowrap;" colspan="4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">Gigaword</div>
+                                        <div class="col-sm-2">35.33</div>
+                                        <div class="col-sm-2">17.27</div>
+                                        <div class="col-sm-2">33.19</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="collapse" id="li_3_abs" style="text-align:justify" colspan="100%">
+                                In this paper, we investigate the sentence summarization task that produces a summary
+                                from
+                                a source sentence. Neural sequence-to-sequence models have gained considerable success
+                                for
+                                this task, while most existing approaches only focus on improving word overlap between
+                                the
+                                generated summary and the reference, which ignore the correctness, i.e., the summary
+                                should
+                                not contain error messages with respect to the source sentence. We argue that
+                                correctness is
+                                an essential requirement for summarization systems. Considering a correct summary is
+                                seman-
+                                tically entailed by the source sentence, we incorporate entailment knowledge into
+                                abstractive
+                                summarization models. We propose an entailment-aware encoder under multi-task framework
+                                (i.e., summarization generation and entailment recognition) and an entailment-aware
+                                decoder by
+                                entailment Reward Augmented Maximum Likelihood (RAML) training. Experimental results
+                                demonstrate that our models significantly outperform baselines from the aspects of
+                                informative-
+                                ness and correctness
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer bg-dark navbar navbar-expand-sm navbar-expand-md navbar-expand-lg navbar-expand-xl justify-content-right page-footer">
+        <!-- <div id="logos">
+            <img src="../img/webis-logo-scaled.png" alt=""> &nbsp; <a href="https://webis.de/" target="_blank" class="lead">Webis</a>
+            &nbsp;
+            &nbsp;
+            <img src="../img/adobe_logo_w50.png" alt=""> &nbsp; <a href="https://research.adobe.com/" target="_blank"
+                class="lead">Adobe Research</a>
+        </div> -->
+        <div>
+            &COPY;webis.de
+        </div>
+    </div>
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script>
+        ! function ($) {
+            $(function () {
+                window.prettyPrint && prettyPrint()
+            })
+        }(window.jQuery)
+        $(function () {
+            (function ($) {
+                $('#filter').keyup(function () {
+                    var rex = new RegExp($(this).val(), 'i');
+                    $('.searchable tr').hide();
+                    $('.searchable tr').filter(function () {
+                        return rex.test($(this).text());
+                    }).show();
+                })
+            }(jQuery));
+        });
+    </script>
+</body>
+
+</html>

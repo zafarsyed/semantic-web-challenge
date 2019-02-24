@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="PF6Vn6W3xL_WzJ-tobNlP0p4ggPLI-QOnMXPfLm7zqs" />
+
+  <title>Didn't read</title>
+  <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+
+  <style>
+    /*
+ * Globals
+ */
+
+ html {
+  font-size: 1.1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #fff;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #0B4779;
+  border: 1px solid #0B4779;
+}
+
+
+
+
+html,
+body {
+  height: 100%;
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.navbar-brand {
+  margin-top:-5px;
+}
+
+.container {
+  padding-top:15px;
+}
+
+.wrapper{
+  height: 100vh;
+}
+
+
+#organizational{
+  background-color:#2E3439;
+}
+
+#persons{
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.person{
+    flex: 0 1 105px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    padding: 0px;
+   /* border: 1px solid #dee2e6; */
+}
+
+.person-name{
+  font-size: 16px;
+color: whitesmoke;
+font-weight: 350;
+}
+
+.affiliation{
+  margin-top: 5px;
+font-size: 12px;
+color: whitesmoke;
+}
+
+.person-info{
+width: 100%;
+text-align: center;
+padding-left: 5px;
+padding-right: 5px;
+margin-left: 12px;
+padding-top: 10px;
+height: 110px;
+}
+
+#logos{
+  margin-top: 25px;
+  margin-left: 25px;
+  padding-bottom: 15px;
+  bottom: 0px;
+}
+
+
+</style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+      <nav class="navbar navbar-dark navbar-expand-sm navbar-expand-md navbar-expand-lg navbar-expand-xl justify-content-start">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/tldr-logo.png" class="img-responsive" style="max-height:80px; margin-top:2px; margin-left: -20px;"
+            alt="Logo">
+        </a>
+        <h1 class="lead" style="text-align:right; font-size: 2em; padding-top: 4px">The abstractive summarization
+          challenge</h1>
+      </nav>
+    </div>
+    <!-- Cards-->
+    <div class="container col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8" style="margin-bottom:6em">
+
+
+      <div class="card text-white p-1 bg-dark">
+        <div class="card-body">
+          <h5 class="lead card-title text-left"><i class="fas fa-clipboard fa-lg" style="margin-right:8px" aria-hidden="true"></i>Description</h5>
+          <p class="card-text text-left">
+            With the vast amounts of information being generated online, summarization has always been used in empowering users to quickly decide if they need to read lengthy articles. This problem is further exacerbated on social media platforms where users write informally with little concern for style, structure or grammar. In this challenge, participants will specifically generate summaries for social media posts. <br> <br> For the first time, we have created one of the largest datasets for neural summarization (Webis-TLDR-17 Corpus) by mining <strong>Reddit</strong> - an online discussion forum which encourages the practice of providing a "tldr- a short, paraphrased summary" by the author of a post. We invite participants to test and develop their neural summarization models on our dataset to generate such <strong>TLDRs</strong>; as an incentive, we provide a free, extensive qualitative evaluation of your models through dedicated crowdsourcing. <br>
+            For a quick overview of state-of-the-art in neural summarization, refer to this <a href="tldr-web/soa.html"
+            class="font-weight-bold" style="text-decoration:underline" >RELATED WORK</a>
+          </p>
+        </div>
+      </div>
+      <div class="card text-white p-1 bg-dark">
+        <div class="card-body">
+          <h5 class="lead card-title text-left"><i class="far fa-calendar-alt fa-lg" style="margin-right:8px"
+              aria-hidden="true"></i>Timeline</h5>
+          <p class="card-text text-left">
+            <strong>November 5th, 2018 :</strong> Training data available, competition begins. <br>
+            <strong>March 15th, 2019 :</strong> Submission system and public leaderboard open. <i>(Deadline extended)</i> <br>
+            <strong>May 1st, 2019 :</strong> Submission system closed (23:59 PM UTC), manual evaluation
+            begins. <br>
+          </p>
+        </div>
+      </div>
+
+    
+      <div class="card text-white p-1 bg-dark">
+        <div class="card-body">
+          <h4 class="lead card-title text-left"><i class="fa fa-database fa-lg" style="margin-right:8px" aria-hidden="true"></i>Get started</h4>
+          <p class="card-text text-left">We provide a corpus consisting of approximately 3 Million content-summary
+            pairs mined from Reddit. It is up to the participants to split this into training and validation sets
+            accordingly. Details about
+            the corpus construction can be found in our publication: <br>
+            <a href="http://aclweb.org/anthology/W17-4508" style="text-decoration:underline" class="font-weight-bold">TL;DR: Mining Reddit
+              to
+              Learn Automatic Summarization</a></p>
+          <p style="float:left">
+          <a style="float: left;" href="https://goo.gl/forms/mrvXdRLiHmxgG5k73" class="btn btn-default" target="_blank">Register
+              </a>
+            <a href="https://zenodo.org/record/1168855" target="new" style="margin-left:10px" class="btn btn-default">Zenodo</a>
+            <a href="https://zenodo.org/record/1168855/files/tldr-challenge-dataset.zip" class="btn btn-default" target="_blank"
+              style="margin-left:8px">Download</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="card text-white p-1 bg-dark">
+        <div class="card-body">
+          <h4 class="lead card-title text-left"><i class="fa fa-chart-bar fa-lg" style="margin-right:8px" aria-hidden="true"></i>Evaluation</h4>
+          <p class="card-text text-left">To provide fast approximations of model performance, the public leaderboard
+            will be
+            updated with <a href="https://github.com/tagucci/pythonrouge" style="text-decoration:underline" class="font-weight-bold">ROUGE</a> scores.
+            You will be able to self-evaluate your software using the <a href="http://tira.io/" target="new" style="text-decoration:underline" class="font-weight-bold">TIRA</a>
+            service. You can find the user guide <a href="https://www.tira.io/static/tira-vm-user-guide.pdf" style="text-decoration:underline" target="new"
+              class="font-weight-bold">here</a>. A script will be provided shortly after the start of the competition
+            using which participants will be able to perform self evaluation and report the F-1 scores accordingly for
+            ROUGE-1, ROUGE-2 and ROUGE-LCS.
+          </p>
+          <p class="card-text text-left">
+            Additionally, a qualitative evaluation will be performed through crowdsourcing. Human
+            annotators will rate each candidate summary according to five linguistic qualities as suggested by the <a
+              href="https://duc.nist.gov/pubs/2006papers/duc2006.pdf" target="new" style="text-decoration:underline" class="font-weight-bold">DUC
+              guidelines</a>.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="card text-white p-1 bg-dark">
+        <div class="card-body">
+          <h5 class="lead card-title text-left"><i class="fas fa-cogs fa-lg" style="margin-right:8px" aria-hidden="true"></i>Submission</h5>
+          <p class="card-text text-left">When you register, you will get remote access to a virtual machine (Windows
+            or Linux) to deploy the task software in. Your software must be executable from the command line and not
+            require Internet access during the evaluation period.
+          </p>
+          <p class="card-text text-left font-italic">
+            NOTE: By submitting your software you retain full copyrights. You agree to grant us usage rights for
+            evaluation of the corresponding data generated by your models. We agree not to share your model with a
+            third party or use it for any purpose other than research. The generated summaries will however be
+            shared with a crowdsourcing platform for evaluation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End of cards-->
+
+  
+
+  <div id="organizational">
+    <div class="container">
+      <div id="persons">
+        <div class="person col-xl-1 col-lg-2 col-sm-3 col-xs-12">
+          <div>
+            <img src="tldr-figures/syed.jpg" alt="">
+          </div>
+          <div class="person-info">
+            <p class="person-name">Shahbaz Syed</p>
+            <p class="affiliation">Universit&auml;t Leipzig</p>
+          </div>
+        </div>
+        <div class="person col-xl-1 col-lg-2 col-sm-3 col-xs-12">
+          <div>
+            <img src="tldr-figures/voelske.jpg" alt="">
+          </div>
+          <div class="person-info">
+            <p class="person-name">Michael V&ouml;lske</p>
+            <p class="affiliation">Bauhaus-Universit&auml;t Weimar</p>
+          </div>
+        </div>
+        <div class="person col-xl-1 col-lg-2 col-sm-3 col-xs-12">
+          <div>
+            <img src="tldr-figures/martin.jpg" alt="">
+          </div>
+          <div class="person-info">
+            <p class="person-name">Martin Potthast</p>
+            <p class="affiliation">Universit&auml;t Leipzig</p>
+          </div>
+        </div>
+        <div class="person col-xl-1 col-lg-2 col-sm-3 col-xs-12">
+          <div>
+            <img src="tldr-figures/lipka.jpg" alt="">
+          </div>
+          <div class="person-info">
+            <p class="person-name">Nedim Lipka</p>
+            <p class="affiliation">Adobe Research, San Jose</p>
+          </div>
+        </div>
+        <div class="person col-xl-1 col-lg-2 col-sm-3 col-xs-12">
+          <div>
+            <img src="tldr-figures/benno.jpg" alt="">
+          </div>
+          <div class="person-info">
+            <p class="person-name">Benno Stein</p>
+            <p class="affiliation">Bauhaus-Universit&auml;t Weimar</p>
+          </div>
+        </div>
+          <div class="person col-xl-1 col-lg-2 col-sm-3 col-xs-12">
+          <div>
+            <img src="tldr-figures/schuetze.jpg" alt="">
+          </div>
+          <div class="person-info">
+            <p class="person-name">Hinrich Sch&uuml;tze</p>
+            <p class="affiliation">Ludwig-Maximilians-Universit&auml;t, Munich</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="logos" class="justify-content-center">
+      <a href="https://webis.de/"  style="text-decoration:none" target="_blank" class="lead font-weight-bold"><img src="img/webis-logo-scaled.png" alt=""> &nbsp;Webis</a>
+      &nbsp;
+      &nbsp;
+      <a href="https://research.adobe.com/" style="text-decoration:none" target="_blank" class="lead"><img src="img/adobe_logo_w50.png" alt=""></a>
+      &nbsp;
+      &nbsp;
+      <a href="https://www.en.uni-muenchen.de/index.html" style="text-decoration:none" target="_blank" class="lead"><img src="img/lmu-logo-50.png" alt=""></a>
+      &nbsp;
+      &nbsp;
+      <a href="https://www.scads.de/en/" style="text-decoration:none" target="_blank" class="lead"><img src="img/scads-logo-50.png" alt=""></a>
+      &nbsp;
+      &nbsp;
+      <a href="https://www.uni-leipzig.de/en/" style="text-decoration:none" target="_blank" class="lead"><img src="img/unileipzig-logo-50.png" alt=""></a>
+      &nbsp;
+      &nbsp;
+      <a href="https://www.uni-weimar.de/en/university/start/" style="text-decoration:none" target="_blank" class="lead"><img src="img/uni-weimar-logo.png" alt=""></a>
+        <div style="float: right;">
+      &COPY;webis.de
+    </div>
+    </div>
+    
+  </div>
+</div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $('.jumbotron').tooltip({
+      selector: "[data-toggle=tooltip]",
+      container: "body"
+    })
+  </script>
+</body>
+
+</html>
