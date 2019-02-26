@@ -194,7 +194,7 @@ height: 110px;
       <div class="card p-1">
         <div class="card-body">
           <h5 class="lead card-title text-left"><i class="fa fa-bullseye fa-lg" style="margin-right:8px"
-              aria-hidden="true"></i>Task Description</h5>
+              aria-hidden="true"></i>Tasks Descriptions</h5>
 
           <h5 class="text-left"><a id="Task_One_Attribute_prediction"></a>Task One: Fact Validation</h5>
           <p class="card-text text-justify">
@@ -211,11 +211,13 @@ height: 110px;
             </code></pre>
 
 <p class="card-text text-justify"> Note that, the statements in the training set are labeled with trust scores 0 or 1 using the property &lt;<span class="hljs-title">http:</span>//<span class="hljs-attribute">swc2019.dice-research.org</span>/<span class="hljs-attribute">hasTruthValue</span>&gt;. It is up to the participants to further split the training set into training and validation sets accordingly. The following properties will be used in scoring the challenge</p>
-    <ul>
-      <li>http://dice-research.org/ontology/drugbank/interactsWith</li>
-      <li>http://dice-research.org/ontology/drugbank/hasSimilarIndication</li>
-      <li>http://dice-research.org/ontology/drugbank/shareSameState</li>
-    </ul>
+<ul class="text-left">
+  <li>http://dice-research.org/ontology/drugbank/interactsWith</li>
+  <li>http://dice-research.org/ontology/drugbank/hasCommonIndication</li>
+  <li>http://dice-research.org/ontology/drugbank/hasSameState</li>
+  <li>http://dice-research.org/ontology/drugbank/hasIndication</li>
+  <li>http://dice-research.org/ontology/drugbank/hasCommonProducer</li>
+</ul>
 
     <p class="card-text text-justify">The description and the domain and range information of the properties will be shared with the training set.</p>
         </div>
@@ -224,8 +226,9 @@ height: 110px;
       <div class="card p-1">
         <div class="card-body">
           <h4 class="lead card-title text-left"><i class="fa fa-chart-bar fa-lg" style="margin-right:8px" aria-hidden="true"></i>Evaluation</h4>
+          <h5 class="text-left"><a id="Task_One_Attribute_prediction"></a>Task One: Fact Validation</h5>
           <p class="card-text text-left">
-              For solution scoring, the test dataset containing positive and negative statements are provided to the participants. Note that, the test inputs provided contains similar statements like the training input (see example above) except the statement that indicate the trust score, which are only known to the dataset owners. The participating systems are expected to output a file containing triple statements of scores, one for each input. For example, a system could return </p>
+              For solution scoring, the test dataset containing positive and negative statements will be provided to the participants. Note that, the test inputs provided contains similar statements like the training input (see example above) except the statement that indicate the trust score, which are only known to the dataset owners. The participating systems are expected to output a file containing triple statements of scores, one for each input. For example, a system could return </p>
               <pre><code class="language-markdown"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">http:</span>//<span class="hljs-attribute">swc2019.dice-research.org</span>/<span class="hljs-attribute">task</span>/<span class="hljs-attribute">dataset</span>/<span class="hljs-attribute">s-00001</span>&gt;</span></span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">http:</span>//<span class="hljs-attribute">swc2019.dice-research.org</span>/<span class="hljs-attribute">hasTruthValue</span>&gt;</span></span> "0.0"^^&lt;<span class="xml"><span class="hljs-title">http:</span>//<span class="hljs-attribute">www.w3.org</span>/<span class="hljs-attribute">2001</span>/<span class="hljs-attribute">XMLSchema</span>#<span class="hljs-attribute">double</span>&gt;</span></span> .</code></pre>
 
           <p class="card-text text-justify">The solutions will be scored by using the area under the ROC curve (AUC).</p>
@@ -244,7 +247,8 @@ height: 110px;
           <div class="card-body">
             <h5 class="lead card-title text-left"><i class="far fa-calendar-alt fa-lg" style="margin-right:8px"
                 aria-hidden="true"></i>Timeline</h5>
-            <p class="card-text text-left"> The following timelines must be observed both by the organizers and participants of the challenge 
+            <p class="card-text text-left"> The following timelines must be observed both by the organizers and participants of the challenge: </p>
+            <p class="card-text text-left">
               <strong>March 15, 2019 :</strong> Release of Dataset, competition begins. <br>
               <strong>June 15, 2019 :</strong> Submission of Systems. <br>
               <strong>July 08, 2019 :</strong> System Results and Notification of Acceptance <br>
